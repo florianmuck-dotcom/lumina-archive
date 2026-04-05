@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fbfbfb;
+    color: #1d1d1f;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display',
+      'SF Pro Text', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  .nav-glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* â”€â”€ Masonry â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  .masonry-grid {
+    columns: 3;
+    column-gap: 10px;
+  }
+  @media (max-width: 900px) {
+    .masonry-grid { columns: 2; }
+  }
+  @media (max-width: 540px) {
+    .masonry-grid { columns: 1; }
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 10px;
+  }
+
+  /* â”€â”€ Aspect ratios â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  .ratio-portrait  { aspect-ratio: 3 / 4; }
+  .ratio-landscape { aspect-ratio: 16 / 9; }
+  .ratio-square    { aspect-ratio: 1 / 1; }
+
+  /* â”€â”€ Bento grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .bento-featured { grid-column: span 2; }
+  @media (max-width: 800px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .bento-featured { grid-column: span 2; }
+  }
+  @media (max-width: 540px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-featured { grid-column: span 1; }
+  }
+
+  /* â”€â”€ Leaflet overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  .leaflet-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+    border-radius: 1.25rem;
+  }
+  .leaflet-popup-content-wrapper {
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    border: 0.5px solid rgba(0, 0, 0, 0.08) !important;
+  }
+  .leaflet-popup-tip {
+    box-shadow: none !important;
+  }
+}
